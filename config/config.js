@@ -4,6 +4,9 @@ const config = {
 	server: {
 		port: env.num('HTTP_PORT', 3000),
 	},
+	urlShortener: {
+		length: env.num('SHORT_URL_LENGTH', 8),
+	},
 	validator: {
 		joiConfigs: {
 			abortEarly: false,
