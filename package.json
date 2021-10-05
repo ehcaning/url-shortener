@@ -1,0 +1,14 @@
+{
+  "name": "url-shortener",
+  "version": "1.0.0",
+  "description": "url shortener for tier mobility",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "url-shortener"
+  ],
+  "author": "ehsanseyedi7@gmail.com",
+  "license": "ISC"
+}
