@@ -4,6 +4,9 @@ const app = express();
 app.disable('x-powered-by');
 app.use(express.json());
 
+const routes = require('./routes');
+app.use('/api', routes.api);
+
 app.listen(config.server.port, () => {
 	console.log(`app running on 127.0.0.1:${config.server.port}`);
 });

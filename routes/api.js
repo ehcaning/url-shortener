@@ -1,0 +1,7 @@
+const express = require('express');
+const router = express.Router();
+const controller = require('../controllers/api');
+
+router.post('/short-link', controller.getShortUrl);
+
+module.exports = router;
