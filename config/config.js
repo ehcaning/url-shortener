@@ -6,6 +6,7 @@ const config = {
 	},
 	urlShortener: {
 		length: env.num('SHORT_URL_LENGTH', 8),
+		baseUrl: env.str('BASE_URL', 'http://localhost:3000'),
 	},
 	validator: {
 		joiConfigs: {
