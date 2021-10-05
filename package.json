@@ -12,6 +12,7 @@
   "author": "ehsanseyedi7@gmail.com",
   "license": "ISC",
   "dependencies": {
+    "@ehcan/envparser": "^1.0.3",
     "express": "^4.17.1"
   }
 }
