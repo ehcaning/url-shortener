@@ -1,22 +1,22 @@
 {
-  "name": "url-shortener",
-  "version": "1.0.0",
-  "description": "url shortener for tier mobility",
-  "main": "app.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [
-    "url-shortener"
-  ],
-  "author": "ehsanseyedi7@gmail.com",
-  "license": "ISC",
-  "dependencies": {
-    "@ehcan/envparser": "^1.0.3",
-    "express": "^4.17.1",
-    "http-status-codes": "^2.1.4",
-    "joi": "^17.4.2",
-    "mongoose": "^6.0.9",
-    "nanoid": "^3.1.28"
-  }
+	"name": "url-shortener",
+	"version": "1.0.0",
+	"description": "url shortener for tier mobility",
+	"main": "app.js",
+	"scripts": {
+		"start": "node app.js"
+	},
+	"keywords": [
+		"url-shortener"
+	],
+	"author": "ehsanseyedi7@gmail.com",
+	"license": "ISC",
+	"dependencies": {
+		"@ehcan/envparser": "^1.0.3",
+		"express": "^4.17.1",
+		"http-status-codes": "^2.1.4",
+		"joi": "^17.4.2",
+		"mongoose": "^6.0.9",
+		"nanoid": "^3.1.28"
+	}
 }

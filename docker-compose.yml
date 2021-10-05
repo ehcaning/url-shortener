@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  tier-url-shortener:
+      build: .
+      image: tier-url-shortener:latest
+      container_name: tier-url-shortener
+      ports:
+          - '3000:3000'
+      restart: unless-stopped
+      environment:
+        - MONGODB=mongodb://root:root@mongodb:27017/urlshortener?authSource=admin
+
+  mongodb:
+    container_name: mongodb
+    image: mongo
+    ports:
+      - "27017:27017"
+    environment:
+        - MONGO_INITDB_DATABASE=urlshortener
+        - MONGO_INITDB_ROOT_USERNAME=root
+        - MONGO_INITDB_ROOT_PASSWORD=root
