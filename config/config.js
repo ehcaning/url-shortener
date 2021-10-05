@@ -8,6 +8,7 @@ const config = {
 		length: env.num('SHORT_URL_LENGTH', 8),
 		baseUrl: env.str('BASE_URL', 'http://localhost:3000'),
 		maxRetryForRegenerateId: env.num('MAX_RETRY_FOR_REGENERATE_ID', 5),
+		cacheTTL: env.num('SHORT_URL_CACHE_TTL', 2 * 60),
 	},
 	mongodb: {
 		url: env.str('MONGODB', 'mongodb://localhost:27017/urlshortener'),
@@ -15,6 +16,11 @@ const config = {
 			useNewUrlParser: true,
 			useUnifiedTopology: true,
 		},
+	},
+	redis: {
+		host: env.str('REDIS_HOST', 'localhost'),
+		port: env.num('REDIS_PORT', 6379),
+		password: env.str('REDIS_PASSWORD', ''),
 	},
 	validator: {
 		joiConfigs: {

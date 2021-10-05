@@ -1,5 +1,7 @@
 const { shortUrls } = require('./schema');
 const { mongooseErrors } = require('../const');
+const config = require('../config');
+const redisClient = require('./redis').getRedisClient();
 
 /**
  * Create a short link
@@ -8,7 +10,12 @@ const { mongooseErrors } = require('../const');
  */
 async function createShortUrl({ url, slug, isUserPreferredSlug }) {
 	try {
+		// mongodb
 		await shortUrls.create({ url, slug, isUserPreferredSlug });
+
+		// create in redis, we don't want to await for this one
+		redisClient.set(getSlugKey(slug), url, 'EX', config.urlShortener.cacheTTL);
+
 		return true;
 	} catch (err) {
 		if (err.code === mongooseErrors.DUPLICATE_KEY) {
@@ -25,12 +32,31 @@ async function createShortUrl({ url, slug, isUserPreferredSlug }) {
  * @returns {Promise<String>}
  */
 async function getUrlBySlug(slug) {
-	const result = await shortUrls.findOne({ slug }).lean();
+	try {
+		// first check cache
+		const cacheedUrl = await redisClient.get(getSlugKey(slug));
+		if (cacheedUrl) {
+			return cacheedUrl;
+		}
 
-	return result ? result.url : null;
+		const result = await shortUrls.findOne({ slug }).lean();
+		if (!result) {
+			return null;
+		}
+
+		redisClient.set(getSlugKey(slug), result.url, 'EX', config.urlShortener.cacheTTL);
+		return result.url;
+	} catch (err) {
+		console.error(err);
+		return null;
+	}
 }
 
 module.exports = {
 	createShortUrl,
 	getUrlBySlug,
 };
+
+function getSlugKey(slug) {
+	return `slug:${slug}`;
+}
