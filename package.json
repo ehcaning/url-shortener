@@ -10,5 +10,8 @@
     "url-shortener"
   ],
   "author": "ehsanseyedi7@gmail.com",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
