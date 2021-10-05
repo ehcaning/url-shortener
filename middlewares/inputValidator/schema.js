@@ -20,6 +20,13 @@ const getShortUrl = {
 	}),
 };
 
+const redirect = {
+	params: joi.object().keys({
+		slug: joi.string().required(),
+	}),
+};
+
 module.exports = {
 	getShortUrl,
+	redirect,
 };

@@ -7,6 +7,7 @@ app.use(express.json());
 
 const routes = require('./routes');
 app.use('/api', routes.api);
+app.use('/', routes.redirect);
 
 // API Error Handler
 app.use(require('./services/errors/handler'));

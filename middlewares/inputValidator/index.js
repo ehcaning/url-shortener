@@ -27,6 +27,16 @@ function getShortUrl(req, res, next) {
 	}
 }
 
+function redirect(req, res, next) {
+	try {
+		genericValidator(schema.redirect.params, req.params);
+		return next();
+	} catch (err) {
+		next(err);
+	}
+}
+
 module.exports = {
 	getShortUrl,
+	redirect,
 };
