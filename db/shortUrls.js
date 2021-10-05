@@ -19,6 +19,11 @@ async function createShortUrl({ url, slug, isUserPreferredSlug }) {
 	}
 }
 
+/**
+ * Return url for a given slug
+ * @param {String} slug
+ * @returns {Promise<String>}
+ */
 async function getUrlBySlug(slug) {
 	const result = await shortUrls.findOne({ slug }).lean();
 

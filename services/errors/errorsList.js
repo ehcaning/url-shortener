@@ -13,6 +13,10 @@ const errors = {
 		status: StatusCodes.BAD_REQUEST,
 		message: 'Given slug already exists',
 	},
+	SLUG_NOT_FOUND: {
+		status: StatusCodes.NOT_FOUND,
+		message: 'Given slug not found',
+	},
 };
 
 module.exports = errors;
