@@ -1,0 +1,383 @@
+{
+	"info": {
+		"_postman_id": "f42abf21-4a48-4b47-8ad1-f0c9e5b79792",
+		"name": "Tier Mobility",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create short link",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"url\": \"https://ehcan.ir\",\n    \"preferredSlug\": \"\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE}}/api/short-link",
+					"host": [
+						"{{BASE}}"
+					],
+					"path": [
+						"api",
+						"short-link"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"url\": \"https://ehcan.ir\",\n    \"preferredSlug\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE}}/api/short-link",
+							"host": [
+								"{{BASE}}"
+							],
+							"path": [
+								"api",
+								"short-link"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "63"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"3f-oeEfw21i37zCkyRijMum8FO6hok\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 05 Oct 2021 21:23:54 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"slug\": \"wpl-WamT\",\n    \"shortUrl\": \"http://localhost:3000/wpl-WamT\"\n}"
+				},
+				{
+					"name": "Given slug already exists for user defined slug",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"url\": \"https://ehcan.ir\",\n    \"preferredSlug\": \"abcde\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE}}/api/short-link",
+							"host": [
+								"{{BASE}}"
+							],
+							"path": [
+								"api",
+								"short-link"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "39"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"27-+gmFY4VDuUA1FKRT9Doa38nWtAY\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 05 Oct 2021 21:23:34 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Given slug already exists\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Redirect",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"url\": \"https://ehcan.ir\",\n    \"preferredSlug\": \"\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE}}/:slug",
+					"host": [
+						"{{BASE}}"
+					],
+					"path": [
+						":slug"
+					],
+					"variable": [
+						{
+							"key": "slug",
+							"value": "AkJKi2Ox"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Not Found",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE}}/:slug",
+							"host": [
+								"{{BASE}}"
+							],
+							"path": [
+								":slug"
+							],
+							"variable": [
+								{
+									"key": "slug",
+									"value": "test"
+								}
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "34"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"22-dPxGOtGg4Zrb472xvQA9qEg7xS0\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 05 Oct 2021 21:22:08 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Given slug not found\"\n}"
+				},
+				{
+					"name": "Success Redirect",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE}}/:slug",
+							"host": [
+								"{{BASE}}"
+							],
+							"path": [
+								":slug"
+							],
+							"variable": [
+								{
+									"key": "slug",
+									"value": "OvrLt4K6"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Content-Length",
+							"value": "4053"
+						},
+						{
+							"key": "Server",
+							"value": "GitHub.com"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "Last-Modified",
+							"value": "Tue, 05 Oct 2021 07:41:22 GMT"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"615c01a2-562b\""
+						},
+						{
+							"key": "expires",
+							"value": "Tue, 05 Oct 2021 21:28:38 GMT"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "max-age=600"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "x-proxy-cache",
+							"value": "MISS"
+						},
+						{
+							"key": "X-GitHub-Request-Id",
+							"value": "3E5C:F77A:3140D8:33D01B:615CC12E"
+						},
+						{
+							"key": "Accept-Ranges",
+							"value": "bytes"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 05 Oct 2021 21:22:19 GMT"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 varnish"
+						},
+						{
+							"key": "Age",
+							"value": "157"
+						},
+						{
+							"key": "X-Served-By",
+							"value": "cache-fra19127-FRA"
+						},
+						{
+							"key": "X-Cache",
+							"value": "HIT"
+						},
+						{
+							"key": "X-Cache-Hits",
+							"value": "1"
+						},
+						{
+							"key": "X-Timer",
+							"value": "S1633468940.642565,VS0,VE0"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "X-Fastly-Request-ID",
+							"value": "e45ec6b00ba27cecfab279d00d26e84a40d66343"
+						}
+					],
+					"cookie": [],
+					"body": "<!DOCTYPE html>\n<html lang=\"fa\" class=\"no-js\">\n    <head>\n        <meta charset=\"UTF-8\" />\n        <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n        <title>وب‌سایت شخصی احسان سیدی</title>\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, maximum-scale=1\" />\n        <!-- HTML Meta Tags -->\n        <meta name=\"description\" content=\"احسان سیدی، برنامه‌نویس وب هستم، رزومه، پروژه‌ها، نمونه کارها و سایر فعالیت‌های من رو اینجا می‌تونید ببینید.\">\n        <meta name=\"keywords\" content=\"vcard, resume, portfolio, software engineer, backend, devops, git\" />\n        <meta name=\"author\" content=\"Ehsan Seyedi\" />\n        <!-- Google / Search Engine Tags -->\n        <meta itemprop=\"name\" content=\"وب‌سایت شخصی احسان سیدی\">\n        <meta itemprop=\"description\" content=\"احسان سیدی، برنامه‌نویس وب هستم، رزومه، پروژه‌ها، نمونه کارها و سایر فعالیت‌های من رو اینجا می‌تونید ببینید.\">\n        <meta itemprop=\"image\" content=\"img/main_photo.jpg\">\n        <!-- Facebook Meta Tags -->\n        <meta property=\"og:title\" content=\"وب‌سایت شخصی احسان سیدی\" />\n        <meta property=\"og:type\" content=\"website\" />\n        <meta property=\"og:url\" content=\"https://ehcan.ir\" />\n        <meta property=\"og:image\" content=\"img/main_photo.jpg\" />\n        <meta property=\"og:description\" content=\"احسان سیدی، برنامه‌نویس وب هستم، رزومه، پروژه‌ها، نمونه کارها و سایر فعالیت‌های من رو اینجا می‌تونید ببینید.\">\n        <!-- Twitter Meta Tags -->\n        <meta name=\"twitter:card\" content=\"summary_large_image\">\n        <meta name=\"twitter:title\" content=\"وب‌سایت شخصی احسان سیدی\" />\n        <meta name=\"twitter:description\" content=\"احسان سیدی، برنامه‌نویس وب هستم، رزومه، پروژه‌ها، نمونه کارها و سایر فعالیت‌های من رو اینجا می‌تونید ببینید.\">\n        <meta name=\"twitter:image\" content=\"img/main_photo.jpg\">\n        <meta name=\"robots\" content=\"index,follow\" />\n        <meta hreflang=\"x-default\" href=\"https://ehcan.ir\" rel=\"alternate\"/>\n        <!-- Fav Icons -->\n        <link rel=\"apple-touch-icon\" sizes=\"180x180\" href=\"img/fav/apple-touch-icon.png?v=1\">\n        <link rel=\"icon\" type=\"image/png\" sizes=\"32x32\" href=\"img/fav/favicon-32x32.png?v=1\">\n        <link rel=\"icon\" type=\"image/png\" sizes=\"16x16\" href=\"img/fav/favicon-16x16.png?v=1\">\n        <link rel=\"manifest\" href=\"img/fav/site.webmanifest?v=1\">\n        <link rel=\"mask-icon\" href=\"img/fav/safari-pinned-tab.svg?v=1\" color=\"#5bbad5\">\n        <link rel=\"shortcut icon\" href=\"img/fav/favicon.ico?v=1\">\n        <meta name=\"apple-mobile-web-app-title\" content=\"Ehcan.ir\">\n        <meta name=\"application-name\" content=\"Ehcan.ir\">\n        <meta name=\"msapplication-TileColor\" content=\"#da532c\">\n        <meta name=\"theme-color\" content=\"#ffffff\">\n        <link rel=\"stylesheet\" href=\"css/reset.min.css\" type=\"text/css\">\n        <link rel=\"stylesheet\" href=\"css/bootstrap-grid.min.css\" type=\"text/css\">\n        <link rel=\"stylesheet\" href=\"css/animations.min.css\" type=\"text/css\">\n        <link rel=\"stylesheet\" href=\"css/perfect-scrollbar.css\" type=\"text/css\">\n        <link rel=\"stylesheet\" href=\"css/owl.carousel.min.css\" type=\"text/css\">\n        <link rel=\"stylesheet\" href=\"css/magnific-popup.min.css\" type=\"text/css\">\n        <link rel=\"stylesheet\" href=\"css/main.css\" type=\"text/css\">\n        <link rel=\"stylesheet\" href=\"css/main-rtl.min.css\" type=\"text/css\">\n        <script src=\"js/modernizr.custom.js\"></script>\n    </head>\n    <body>\n        <!-- Animated Background -->\n        <div class=\"lm-animated-bg\" style=\"background-image: url(img/main_bg.png);\"></div>\n        <!-- /Animated Background -->\n        <!-- Loading animation -->\n        <div class=\"preloader\">\n            <div class=\"preloader-animation\">\n                <div class=\"preloader-spinner\">\r\n        </div>\n            </div>\n        </div>\n        <!-- /Loading animation -->\n        <div class=\"page\">\n            <div class=\"page-content\">\n                <header id=\"site_header\" class=\"header mobile-menu-hide\">\n                    <div class=\"header-content\">\n                        <div class=\"header-photo\">\n                            <img src=\"img/main_photo.jpg\" alt=\"Alex Smith\" class=\"img-hor\">\r\n              \n                        </div>\n                        <div class=\"header-titles\">\n                            <h2>احسان سیدی</h2>\n                            <h4>مهندس نرم‌افزار</h4>\n                        </div>\n                    </div>\n                    <ul class=\"main-menu\">\n                        <li class=\"active\">\n                            <a href=\"#about-me\" class=\"nav-anim\" data-animation=\"17\">\n                                <span class=\"menu-icon lnr lnr-user\"></span>\n                                <span class=\"link-text\">درباره من</span>\n                            </a>\n                        </li>\n                        <li>\n                            <a href=\"#resume\" class=\"nav-anim\" data-animation=\"17\">\n                                <span class=\"menu-icon lnr lnr-graduation-hat\"></span>\n                                <span class=\"link-text\">رزومه</span>\n                            </a>\n                        </li>\n                        <li>\n                            <a href=\"#contact\" class=\"nav-anim\" data-animation=\"17\">\n                                <span class=\"menu-icon lnr lnr-envelope\"></span>\n                                <span class=\"link-text\">تماس</span>\n                            </a>\n                        </li>\n                    </ul>\n                    <div class=\"social-links\">\n                        <ul>\n                            <li>\n                                <a href=\"https://www.linkedin.com/in/ehcan/\" target=\"_blank\">\n                                    <i class=\"fab fa-linkedin-in\"></i>\n                                </a>\n                            </li>\n                            <li>\n                                <a href=\"https://www.instagram.com/ehcaning/\" target=\"_blank\">\n                                    <i class=\"fab fa-instagram\"></i>\n                                </a>\n                            </li>\n                            <li>\n                                <a href=\"https://twitter.com/Ehcaning\" target=\"_blank\">\n                                    <i class=\"fab fa-twitter\"></i>\n                                </a>\n                            </li>\n                            <li>\n                                <a href=\"https://t.me/Ehcaning\" target=\"_blank\">\n                                    <i class=\"fab fa-telegram-plane\"></i>\n                                </a>\n                            </li>\n                        </ul>\n                        <ul>\n                            <li>\n                                <a href=\"https://github.com/Ehcaning\" target=\"_blank\">\n                                    <i class=\"fab fa-github\"></i>\n                                </a>\n                            </li>\n                            <li>\n                                <a href=\"https://www.npmjs.com/~ehcan\" target=\"_blank\">\n                                    <i class=\"fab fa-npm\"></i>\n                                </a>\n                            </li>\n                            <li>\n                                <a href=\"https://hub.docker.com/u/ehcaning\" target=\"_blank\">\n                                    <i class=\"fab fa-docker\"></i>\n                                </a>\n                            </li>\n                            <li>\n                                <a href=\"https://packagist.org/users/Ehcaning/\" target=\"_blank\">\n                                    <i class=\"fab fa-php\"></i>\n                                </a>\n                            </li>\n                        </ul>\n                        <ul>\n                            <li>\n                                <a href=\"mailto:contact@ehcan.ir\" target=\"_blank\">\n                                    <i class=\"far fa-envelope\"></i>\n                                </a>\n                            </li>\n                            <li>\n                                <a href=\"tel:+989105536090\" target=\"_blank\">\n                                    <i class=\"fas fa-phone\"></i>\n                                </a>\n                            </li>\n                        </ul>\n                    </div>\n                    <div class=\"copyrights\">© 2020 تمامی حقوق برای احسان سیدی محفوظ است</div>\n                </header>\n                <!-- Mobile Navigation -->\n                <div class=\"menu-toggle\">\n                    <span></span>\n                    <span></span>\n                    <span></span>\n                </div>\n                <!-- End Mobile Navigation -->\n                <!-- Arrows Nav -->\n                <div class=\"lmpixels-arrows-nav\">\n                    <div class=\"lmpixels-arrow-left\">\n                        <i class=\"lnr lnr-chevron-right\"></i>\n                    </div>\n                    <div class=\"lmpixels-arrow-right\">\n                        <i class=\"lnr lnr-chevron-left\"></i>\n                    </div>\n                </div>\n                <!-- End Arrows Nav -->\n                <div class=\"content-area\">\n                    <div class=\"animated-sections\">\n                        <!-- About Me Subpage -->\n                        <section data-id=\"about-me\" class=\"animated-section\">\n                            <div class=\"page-title\">\n                                <h2>درباره \n                                    <span>من</span>\n                                </h2>\n                            </div>\n                            <div class=\"section-content\">\n                                <!-- Personal Information -->\n                                <div class=\"row\">\n                                    <div class=\"col-xs-12 col-sm-7\">\n                                        <p class=\"text-justify\">\r\n                        کارشناس فناوری اطلاعات هستم، سال‌هاست که تفریحی و حرفه‌ای در حوزه‌ی نرم افزار مشغول هستم.\n                                            <br>\r\n                        کارم رو از برنامه‌نویسی موبایل شروع کردم و در ادامه به برنامه نویسی سرور تغییر حوزه دادم.\n                                            <br>\r\n                        علاقه‌مند به یادگیری و چالش‌های جدید هستم، از کار تکراری و حوصله‌سر بر بیزارم. وقت‌های آزادم رو معمولا صرف ورزش، فیلم و سریال و کتاب می‌کنم.\r\n                      \n                                        </p>\n                                    </div>\n                                    <div class=\"col-xs-12 col-sm-5\">\n                                        <div class=\"info-list\">\n                                            <ul>\n                                                <li>\n                                                    <span class=\"title\">سن</span>\n                                                    <span class=\"value\" id=\"my-age\"></span>\n                                                </li>\n                                                <li>\n                                                    <span class=\"title\">اقامت</span>\n                                                    <span class=\"value\">ایران</span>\n                                                </li>\n                                                <li>\n                                                    <span class=\"title\">ایمیل</span>\n                                                    <span class=\"value\">contact@ehcan.ir</span>\n                                                </li>\n                                                <li>\n                                                    <span class=\"title\">تلفن</span>\n                                                    <span class=\"value\" ltr>09105536090</span>\n                                                </li>\n                                            </ul>\n                                        </div>\n                                    </div>\n                                </div>\n                                <!-- End of Personal Information -->\n                                <div class=\"white-space-50\"></div>\n                                <!-- Clients -->\n                                <div class=\"row\">\n                                    <div class=\"col-xs-12 col-sm-12\">\n                                        <div class=\"block-title\">\n                                            <h3>پروژه‌ها</h3>\n                                        </div>\n                                    </div>\n                                </div>\n                                <div class=\"row\">\n                                    <div class=\"col-xs-12 col-sm-12\">\n                                        <div class=\"clients owl-carousel\" id=\"clients-list\">\n                                            <div class=\"client-block\">\n                                                <a href=\"https://cafebazaar.ir/\" target=\"_blank\" title=\"Cafebazaar\">\n                                                    <img src=\"img/clients/cafebazaar.png\" alt=\"Cafebazaar\">\r\n                          \n                                                </a>\n                                            </div>\n                                        </div>\n                                    </div>\n                                </div>\n                                <!-- End of Clients -->\n                                <div class=\"white-space-50\"></div>\n                                <!-- Clients -->\n                                <div class=\"row\">\n                                    <div class=\"col-xs-12 col-sm-12\">\n                                        <div class=\"block-title\">\n                                            <h3>پروژه‌های شخصی</h3>\n                                        </div>\n                                    </div>\n                                </div>\n                                <div class=\"row\">\n                                    <div class=\"col-xs-12 col-sm-12\">\n                                        <div class=\"clients owl-carousel\">\n                                            <div class=\"client-block\">\n                                                <a href=\"https://snipet.ir/\" target=\"_blank\" title=\"Snipet\">\n                                                    <img src=\"img/clients/snipet.png\" alt=\"Snipet\">\r\n                          \n                                                </a>\n                                            </div>\n                                            <div class=\"client-block\">\n                                                <a href=\"https://www.npmjs.com/~ehcan\" target=\"_blank\" title=\"My npm Packages\">\n                                                    <img src=\"img/clients/npm.png\" alt=\"My npm Packages\">\r\n                          \n                                                </a>\n                                            </div>\n                                            <div class=\"client-block\">\n                                                <a href=\"https://packagist.org/users/Ehcaning/\" target=\"_blank\" title=\"My composer Packages\">\n                                                    <img src=\"img/clients/packagist.png\" alt=\"My composer Packages\">\r\n                          \n                                                </a>\n                                            </div>\n                                            <div class=\"client-block\">\n                                                <a href=\"https://hub.docker.com/u/ehcaning\" target=\"_blank\" title=\"My Docker Images\">\n                                                    <img src=\"img/clients/docker-hub-logo.png\" alt=\"My Docker Images\">\r\n                          \n                                                </a>\n                                            </div>\n                                        </div>\n                                    </div>\n                                </div>\n                                <!-- End of Clients -->\n                                <div class=\"white-space-70\"></div>\n                            </div>\n                        </section>\n                        <!-- End of About Me Subpage -->\n                        <!-- Resume Subpage -->\n                        <section data-id=\"resume\" class=\"animated-section\">\n                            <div class=\"page-title\">\n                                <h2>رزومه</h2>\n                            </div>\n                            <div class=\"section-content\">\n                                <div class=\"row\">\n                                    <div class=\"col-xs-12 col-sm-7\">\n                                        <div class=\"block-title\">\n                                            <h3>تجربه</h3>\n                                        </div>\n                                        <div class=\"timeline timeline-second-style clearfix\">\n                                            <div class=\"timeline-item clearfix\">\n                                                <div class=\"left-part\">\n                                                    <h5 class=\"item-period\">۱۳۹۹/۱۱ - جاری</h5>\n                                                    <span class=\"item-company\">کافه بازار</span>\n                                                </div>\n                                                <div class=\"divider\"></div>\n                                                <div class=\"right-part\">\n                                                    <h4 class=\"item-title\">Software Engineer</h4>\n                                                    <p>در تیم App Delivery در حال حاضر مشغول به کار هستم.</p>\n                                                </div>\n                                            </div>\n                                            <div class=\"timeline-item clearfix\">\n                                                <div class=\"left-part\">\n                                                    <h5 class=\"item-period\">۱۳۹۹/۱ - ۱۳۹۹/۱۰</h5>\n                                                    <h5 class=\"item-period\">۱۳۹۸/۶ - ۱۳۹۹/۱</h5>\n                                                    <span class=\"item-company\">طراحان سفید</span>\n                                                </div>\n                                                <div class=\"divider\"></div>\n                                                <div class=\"right-part\">\n                                                    <h4 class=\"item-title\">Chief Technology Officer</h4>\n                                                    <h4 class=\"item-title\">Senior Bakcend Developer</h4>\n                                                    <p>پروژه‌های\r\n                              \n                                                        <a href=\"https://bazikon.me/\" target=\"_blank\">بازیکن</a>،\n                                                        <a href=\"https://cafebazaar.ir/app/ir.fwdco.sistan\" target=\"_blank\">قهرمانان سیستان</a> و\n                                                        <a href=\"https://royalestrike.ir/\" target=\"_blank\">رویال استرایک</a>\r\n                              رو در مدتی که در این شرکت حضور داشتم ساختیم.\n                                                    </p>\n                                                </div>\n                                            </div>\n                                            <div class=\"timeline-item clearfix\">\n                                                <div class=\"left-part\">\n                                                    <h5 class=\"item-period\">۱۳۹۷/۸ - ۱۳۹۹/۱</h5>\n                                                    <span class=\"item-company\">دیاکو، ایده پردازان جوان</span>\n                                                </div>\n                                                <div class=\"divider\"></div>\n                                                <div class=\"right-part\">\n                                                    <h4 class=\"item-title\">Fullstack Web Developer</h4>\n                                                    <p>پروژه‌های\r\n                              \n                                                        <a href=\"https://cafebazaar.ir/app/com.diacoipj.picopool\" target=\"_blank\">پیکوپول</a>،\n                                                        <a href=\"https://cafebazaar.ir/app/com.diacoipj.QDay\" target=\"_blank\">کیودی</a>،\n                                                        <a href=\"https://cafebazaar.ir/app/com.diacoipj.MicroMoney\" target=\"_blank\">میکرومانی</a> و\n                                                        <a href=\"https://cafebazaar.ir/app/com.diacoipj.hoshbarandeh\" target=\"_blank\">هوش برنده</a>\r\n                              رو در مدتی که در این شرکت حضور داشتم ساختیم.\n                                                    </p>\n                                                </div>\n                                            </div>\n                                        </div>\n                                    </div>\n                                    <!-- Skills & Certificates -->\n                                    <div class=\"col-xs-12 col-sm-5\">\n                                        <div class=\"block-title\">\n                                            <h3>تحصیلات</h3>\n                                        </div>\n                                        <div class=\"timeline timeline-second-style clearfix\">\n                                            <div class=\"timeline-item clearfix\">\n                                                <div class=\"left-part\">\n                                                    <h5 class=\"item-period\">۱۳۹۲ - ۱۳۹۷</h5>\n                                                    <span class=\"item-company\">دانشگاه صنعتی سجاد</span>\n                                                </div>\n                                                <div class=\"divider\"></div>\n                                                <div class=\"right-part\">\n                                                    <h4 class=\"item-title\">کارشناسی فناوری اطلاعات</h4>\n                                                </div>\n                                            </div>\n                                        </div>\n                                        <div class=\"white-space-50\"></div>\n                                        <!-- Knowledges -->\n                                        <div class=\"block-title\">\n                                            <h3>مهارت‌ها</h3>\n                                        </div>\n                                        <ul class=\"knowledges mb-3\">\n                                            <li>javascript</li>\n                                            <li>nodejs</li>\n                                            <li>python</li>\n                                            <li>golang</li>\n                                            <li>php</li>\n                                        </ul>\n                                        <div class=\"white-space-20\"></div>\n                                        <ul class=\"knowledges\">\n                                            <li>mysql</li>\n                                            <li>postgres</li>\n                                            <li>mongodb</li>\n                                            <li>redis</li>\n                                        </ul>\n                                        <div class=\"white-space-20\"></div>\n                                        <ul class=\"knowledges\">\n                                            <li>docker</li>\n                                            <li>docker-compose</li>\n                                            <li>kubernetes</li>\n                                            <li>linux</li>\n                                        </ul>\n                                        <!-- End of Knowledges -->\r\n                    \n                                    </div>\n                                    <!-- End of Skills & Certificates -->\r\n                  \n                                </div>\n                                <div class=\"white-space-50\"></div>\n                                <!-- Certificates -->\n                                <div class=\"row\">\n                                    <div class=\"col-xs-12 col-sm-12\">\n                                        <div class=\"block-title\">\n                                            <h3>گواهینامه ها</h3>\n                                        </div>\n                                    </div>\n                                </div>\n                                <div class=\"row\" id=\"certificates-list\"></div>\n                                <!-- End of Certificates -->\r\n                \n                            </div>\n                        </section>\n                        <!-- End of Resume Subpage -->\n                        <!-- Contact Subpage -->\n                        <section data-id=\"contact\" class=\"animated-section\">\n                            <div class=\"page-title\">\n                                <h2>تماس</h2>\n                            </div>\n                            <div class=\"section-content\">\n                                <div class=\"row\">\n                                    <!-- Contact Info -->\n                                    <div class=\"col-xs-12 col-sm-6\">\n                                        <div class=\"lm-info-block gray-default\">\n                                            <i class=\"lnr lnr-map-marker\"></i>\n                                            <h4>ایران، مشهد</h4>\n                                            <span class=\"lm-info-block-value\"></span>\n                                            <span class=\"lm-info-block-text\"></span>\n                                        </div>\n                                        <div class=\"lm-info-block gray-default\">\n                                            <i class=\"lnr lnr-phone-handset\"></i>\n                                            <h4>0910-553-6090</h4>\n                                            <span class=\"lm-info-block-value\"></span>\n                                            <span class=\"lm-info-block-text\"></span>\n                                        </div>\n                                        <div class=\"lm-info-block gray-default\">\n                                            <i class=\"lnr lnr-envelope\"></i>\n                                            <h4>contact@ehcan.ir</h4>\n                                            <span class=\"lm-info-block-value\"></span>\n                                            <span class=\"lm-info-block-text\"></span>\n                                        </div>\n                                    </div>\n                                    <!-- End of Contact Info -->\r\n                  \n                                </div>\n                            </div>\n                        </section>\n                        <!-- End of Contact Subpage -->\r\n            \n                    </div>\n                </div>\n            </div>\n        </div>\n        <script src=\"js/jquery-2.1.3.min.js\"></script>\n        <script src=\"js/modernizr.custom.js\"></script>\n        <script src=\"js/animating.js\"></script>\n        <script src=\"js/imagesloaded.pkgd.min.js\"></script>\n        <script src='js/perfect-scrollbar.min.js'></script>\n        <script src='js/jquery.shuffle.min.js'></script>\n        <script src='js/masonry.pkgd.min.js'></script>\n        <script src='js/owl.carousel.min.js'></script>\n        <script src=\"js/jquery.magnific-popup.min.js\"></script>\n        <script src=\"js/validator.js\"></script>\n        <script src=\"js/main.min.js\"></script>\n        <script src=\"js/data.min.js\"></script>\n        <script src=\"js/index.min.js\"></script>\n    </body>\n</html>"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "BASE",
+			"value": "127.0.0.1:3000"
+		}
+	]
+}
