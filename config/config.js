@@ -7,6 +7,14 @@ const config = {
 	urlShortener: {
 		length: env.num('SHORT_URL_LENGTH', 8),
 		baseUrl: env.str('BASE_URL', 'http://localhost:3000'),
+		maxRetryForRegenerateId: env.num('MAX_RETRY_FOR_REGENERATE_ID', 5),
+	},
+	mongodb: {
+		url: env.str('MONGODB', 'mongodb://localhost:27017/urlshortener'),
+		options: {
+			useNewUrlParser: true,
+			useUnifiedTopology: true,
+		},
 	},
 	validator: {
 		joiConfigs: {

@@ -1,5 +1,6 @@
 const config = require('./config');
 const express = require('express');
+require('./db/connection');
 const app = express();
 app.disable('x-powered-by');
 app.use(express.json());
