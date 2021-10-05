@@ -1,4 +1,4 @@
-const { shortUrls } = require('../db');
+const { shortUrls, visitLog } = require('../db');
 const errors = require('../services/errors');
 
 async function redirect(req, res, next) {
@@ -10,9 +10,14 @@ async function redirect(req, res, next) {
 			throw errors.SLUG_NOT_FOUND;
 		}
 
-		// TODO: track visit
-
 		res.redirect(url);
+
+		// track visit
+		const ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress;
+		const logResult = visitLog.saveLog({ ip, slug });
+		if (!logResult) {
+			console.error('error on saving visit log');
+		}
 	} catch (err) {
 		next(err);
 	}
