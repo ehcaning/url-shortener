@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "f42abf21-4a48-4b47-8ad1-f0c9e5b79792",
-		"name": "Tier Mobility",
+		"name": "Url Shortener",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [

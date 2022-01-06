@@ -1,4 +1,4 @@
-# URL Shortener for Tier Mobility
+# URL Shortener
 
 ## How to run project:
 

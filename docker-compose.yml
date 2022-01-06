@@ -1,10 +1,10 @@
 version: '3.8'
 
 services:
-  tier-url-shortener:
+  url-shortener:
       build: .
-      image: tier-url-shortener:latest
-      container_name: tier-url-shortener
+      image: url-shortener:latest
+      container_name: url-shortener
       ports:
         - '3000:3000'
       restart: unless-stopped
